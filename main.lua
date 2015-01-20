@@ -1,5 +1,22 @@
 local sp = script.Parent
 local squid = workspace:FindFirstChild("Squiddy")
+local game = game:WaitForChild("Workspace")
+local gamestate = 0
+
+function gameLoad()
+        local target = workspace.Part
+        local camera = workspace.CurrentCamera
+        camera.CameraType = Enum.CameraType.Scriptable
+        camera.CameraSubject = target
+        local angle = 0
+        local inload = 1
+        while inload do
+            camera.CoordinateFrame = CFrame.new(target.Position)
+                                   * CFrame.Angles(0, angle, 0)
+                                   * CFrame.new(0, 0, 5)
+            angle = angle + math.rad(1)
+        end
+end
 
 sq = coroutine.create(
 function NewSquid()    
