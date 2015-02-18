@@ -9,7 +9,7 @@ function gameLoad()
         camera.CameraType = Enum.CameraType.Scriptable
         camera.CameraSubject = target
         local angle = 0
-        local ScreenGui = Instance.new("ScreenGUI", game.Players.LocalPlayer.GUI)
+        LoadScreenGui = Instance.new("ScreenGUI", game.Players.LocalPlayer.GUI)
         local GuiFrame = Instance.new("Frame", ScreenGui)
         local inload = 1
         while inload do
@@ -18,6 +18,11 @@ function gameLoad()
                                    * CFrame.new(0, 0, 5)
             angle = angle + math.rad(1)
         end
+   -- set GUIFrame properties right here, to be decided later on
+end
+
+function exitLoad()
+    LoadScreenGUI:Destroy()
 end
 
 sq = coroutine.create(
